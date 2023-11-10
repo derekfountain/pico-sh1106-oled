@@ -3,6 +3,7 @@
 MIT License
 
 Copyright (c) 2021 David Schramm
+Copyright (c) 2023 Derek Fountain
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +22,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+https://github.com/derekfountain/pico-sh1106-oled
 */
 
 #include <pico/stdlib.h>
@@ -164,12 +167,6 @@ void SH1106_DrawBitmap(int16_t x, int16_t y, const unsigned char* bitmap, int16_
         }
     }
 }
-
-
-
-
-
-
 
 
 uint8_t SH1106_Init(void) {

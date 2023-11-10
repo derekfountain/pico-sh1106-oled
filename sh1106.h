@@ -1,3 +1,31 @@
+/*
+
+MIT License
+
+Copyright (c) 2021 David Schramm
+Copyright (c) 2023 Derek Fountain
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+https://github.com/derekfountain/pico-sh1106-oled
+*/
+
 #ifndef SH1106_H
 #define SH1106_H 
 
@@ -97,83 +125,6 @@ char SH1106_Putc(char ch, FontDef_t* Font, SH1106_COLOR_t color);
  */
 char SH1106_Puts(char* str, FontDef_t* Font, SH1106_COLOR_t color);
 
-/**
- * @brief  Draws line on LCD
- * @note   @ref SH1106_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x0: Line X start point. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y0: Line Y start point. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  x1: Line X end point. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y1: Line Y end point. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  c: Color to be used. This parameter can be a value of @ref SH1106_COLOR_t enumeration
- * @retval None
- */
-void SH1106_DrawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, SH1106_COLOR_t c);
-
-/**
- * @brief  Draws rectangle on LCD
- * @note   @ref SH1106_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x: Top left X start point. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y: Top left Y start point. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  w: Rectangle width in units of pixels
- * @param  h: Rectangle height in units of pixels
- * @param  c: Color to be used. This parameter can be a value of @ref SH1106_COLOR_t enumeration
- * @retval None
- */
-void SH1106_DrawRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, SH1106_COLOR_t c);
-
-/**
- * @brief  Draws filled rectangle on LCD
- * @note   @ref SH1106_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x: Top left X start point. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y: Top left Y start point. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  w: Rectangle width in units of pixels
- * @param  h: Rectangle height in units of pixels
- * @param  c: Color to be used. This parameter can be a value of @ref SH1106_COLOR_t enumeration
- * @retval None
- */
-void SH1106_DrawFilledRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, SH1106_COLOR_t c);
-
-/**
- * @brief  Draws triangle on LCD
- * @note   @ref SH1106_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x1: First coordinate X location. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y1: First coordinate Y location. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  x2: Second coordinate X location. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y2: Second coordinate Y location. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  x3: Third coordinate X location. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y3: Third coordinate Y location. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  c: Color to be used. This parameter can be a value of @ref SH1106_COLOR_t enumeration
- * @retval None
- */
-void SH1106_DrawTriangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t x3, uint16_t y3, SH1106_COLOR_t color);
-
-/**
- * @brief  Draws circle to STM buffer
- * @note   @ref SH1106_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x: X location for center of circle. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y: Y location for center of circle. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  r: Circle radius in units of pixels
- * @param  c: Color to be used. This parameter can be a value of @ref SH1106_COLOR_t enumeration
- * @retval None
- */
-void SH1106_DrawCircle(int16_t x0, int16_t y0, int16_t r, SH1106_COLOR_t c);
-
-/**
- * @brief  Draws filled circle to STM buffer
- * @note   @ref SH1106_UpdateScreen() must be called after that in order to see updated LCD screen
- * @param  x: X location for center of circle. Valid input is 0 to SH1106_WIDTH - 1
- * @param  y: Y location for center of circle. Valid input is 0 to SH1106_HEIGHT - 1
- * @param  r: Circle radius in units of pixels
- * @param  c: Color to be used. This parameter can be a value of @ref SH1106_COLOR_t enumeration
- * @retval None
- */
-void SH1106_DrawFilledCircle(int16_t x0, int16_t y0, int16_t r, SH1106_COLOR_t c);
-
-
-
-#ifndef sh1106_I2C_TIMEOUT
-#define sh1106_I2C_TIMEOUT					20000
-#endif
 
 /**
  * @brief  Initializes SH1106 LCD
@@ -228,7 +179,6 @@ void SH1106_Scrolldiagright(uint8_t start_row, uint8_t end_row);
 
 
 void SH1106_Scrolldiagleft(uint8_t start_row, uint8_t end_row);
-
 
 
 void SH1106_Stopscroll(void);
